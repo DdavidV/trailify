@@ -1,0 +1,15 @@
+openapi: 3.0.0
+info:
+  title: Trailify
+  version: 0.0.1
+paths:
+  /endpoint:
+    x-another-handler: another_handler
+    get:
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object

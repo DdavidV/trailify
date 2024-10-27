@@ -1,0 +1,89 @@
+openapi: 3.0.0
+info:
+  title: Trailify
+  version: 0.0.1
+paths:
+  /endpoint/{id}:
+    get:
+      parameters:
+        - $ref: '#/components/parameters/id'  
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+    post:
+      parameters:
+        - $ref: '#/components/parameters/id'  
+      requestBody:
+        $ref: '#/components/requestBodies/ReqBody'
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+    put:
+      parameters:
+        - $ref: '#/components/parameters/id'  
+      requestBody:
+        $ref: '#/components/requestBodies/ReqBody'
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+    delete:
+      parameters:
+        - $ref: '#/components/parameters/id'  
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                
+components:
+  schemas:
+    Schema:
+      properties:
+        message:
+          type: string
+          example: message
+        object:
+          type: object
+          properties:
+            data:
+              type: string
+              example: data_type
+            data_list:
+              type: array
+              items:
+                type: string
+                example: "[data_1, data_2]"
+      type: object
+      required:
+        - message
+        - object
+
+  parameters:
+    id:
+      name: id
+      in: path
+      required: true
+      schema:
+        type: integer
+        format: int64
+        
+  requestBodies:
+    ReqBody:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Schema'
